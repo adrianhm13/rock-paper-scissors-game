@@ -1,18 +1,18 @@
-function computerPlay(){
+function computerPlay() {
 
     let randomComputerChoice = Math.floor(Math.random() * (3 - 0)) + 0;
-    if (randomComputerChoice === 0){
-        return("rock");
+    if (randomComputerChoice === 0) {
+        return ("rock");
     }
-    else if (randomComputerChoice === 1){
-        return("paper");
+    else if (randomComputerChoice === 1) {
+        return ("paper");
     }
     else {
-        return("scissors");
+        return ("scissors");
     }
 }
 
-function roundGame(playerSelection, computerSelection){
+function roundGame(playerSelection, computerSelection) {
 
     console.log("Computer choice: " + computerSelection);
     let playerInput = prompt("What do you want to choose: Rock, Paper or Scissors");
@@ -20,42 +20,51 @@ function roundGame(playerSelection, computerSelection){
     console.log("Player choice: " + playerInput);
     playerSelection = playerInput.toLowerCase();
 
-    let roundsPlayerWon = false;
+    if (playerSelection === "rock" || "paper" || "scissors") {
+        console.log("test" + playerSelection);
+        let roundsPlayerWon = "lose";
 
-    if (playerSelection === computerSelection){
-        console.log("It's a tie");
-    }
+        if (playerSelection === computerSelection) {
+            roundsPlayerWon = "tie";
+            console.log("It's a tie");
+        }
 
-    else if (playerSelection === "rock"){
-        if (computerSelection === "paper"){
-            console.log("You lose, rock vs paper");
+        else if (playerSelection === "rock") {
+            if (computerSelection === "paper") {
+                console.log("You lose, rock vs paper");
+            }
+            else {
+                roundsPlayerWon = "win";
+                console.log("You win, rock vs scissors");
+            }
         }
-        else {
-            roundsPlayerWon = true;
-            console.log("You win, rock vs scissors");
-        }
-    }
 
-    else if (playerSelection === "paper"){
-        if (computerSelection === "rock"){
-            roundsPlayerWon = true;
-            console.log("You win, paper vs rock");
+        else if (playerSelection === "paper") {
+            if (computerSelection === "rock") {
+                roundsPlayerWon = "win";
+                console.log("You win, paper vs rock");
+            }
+            else {
+                console.log("You lose, paper vs scissors");
+            }
         }
-        else{
-            console.log("You lose, paper vs scissors");
-        }
-    }
 
-    else if (playerSelection === "scissors"){
-        if (computerSelection === "rock"){
-            console.log("You lose, scissors vs rock");
+        else if (playerSelection === "scissors") {
+            if (computerSelection === "rock") {
+                console.log("You lose, scissors vs rock");
+            }
+            else {
+                roundsPlayerWon = "win";
+                console.log("You win, scissors vs paper");
+            }
         }
-        else{
-            roundsPlayerWon = true;
-            console.log("You win, scissors vs paper");
-        }
+        return roundsPlayerWon;
+
+    } //End of if condition if the inputValue it's correct
+    else {
+        console.log("Choice not available, try again");
+        game(playerSelection, computerSelection);
     }
-    return roundsPlayerWon;
 }
 
 const playerSelection = "rock";
@@ -63,24 +72,28 @@ let computerSelection;
 let scorePlayer = 0;
 let scoreComputer = 0;
 
-function game(){
-    
-    for (let i = 0; i < 5; i++){
-            console.log("New Game");   
-            computerSelection = computerPlay();
-            let playerWon = roundGame(playerSelection, computerSelection);
+function game() {
 
-            if (playerWon === true){
-                scorePlayer++;
-            }else{
-                scoreComputer++;
-            }
-            console.log("Player score: " + scorePlayer);
-            console.log("Computer score: " + scoreComputer);
+    for (let i = 0; i < 5; i++) {
+        console.log("New Game");
+        computerSelection = computerPlay();
+        let playerWon = roundGame(playerSelection, computerSelection);
+
+        if (playerWon === "win") {
+            scorePlayer++;
+        }
+        else if (playerWon === "lose") {
+            scoreComputer++;
+        }
+        else {
+            console.log("No points for anyone");
+        }
+        console.log("Player score: " + scorePlayer);
+        console.log("Computer score: " + scoreComputer);
     }
-    if (i = 5){
+    if (i = 5) {
         console.log("Game finished");
-        if(scorePlayer < scoreComputer){
+        if (scorePlayer < scoreComputer) {
             console.log("You've lost againts the computer");
         }
     }

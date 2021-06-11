@@ -20,7 +20,7 @@ function roundGame(playerSelection, computerSelection) {
     console.log("Player choice: " + playerInput);
     playerSelection = playerInput.toLowerCase();
 
-    if (playerSelection === "rock" || "paper" || "scissors") {
+    if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors") {
         console.log("test" + playerSelection);
         let roundsPlayerWon = "lose";
 
@@ -62,7 +62,7 @@ function roundGame(playerSelection, computerSelection) {
 
     } //End of if condition if the inputValue it's correct
     else {
-        console.log("Choice not available, try again");
+        alert("Choice not available, try again");
         game(playerSelection, computerSelection);
     }
 }

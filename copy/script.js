@@ -15,7 +15,7 @@ function computerPlay() {
 function roundGame(playerSelection, computerSelection) {
 
     console.log("Computer choice: " + computerSelection);
-    let playerInput = playerSelection;
+    let playerInput = prompt("What do you want to choose: Rock, Paper or Scissors");
 
     console.log("Player choice: " + playerInput);
     playerSelection = playerInput.toLowerCase();
@@ -99,26 +99,4 @@ function game() {
     }
 }
 
-const buttons = document.querySelectorAll("button");
-
-buttons.forEach((button) => {  //Add an event, for when it's clicked
-        button.addEventListener('mouseenter', function(e){
-            console.log(e);
-            if (e.target.id === "rock"){
-                document.getElementById("resultText").innerHTML = "I bet you know you are doing.";
-            }
-            else if (e.target.id === "paper"){
-                document.getElementById("resultText").innerHTML = "Paper? the weak choice of a weak person..."
-            }
-            else {
-                document.getElementById("resultText").innerHTML = "Surely scissors it's a dangerous choice."
-            }
-        });
-        button.addEventListener('mouseleave', function (){
-                document.getElementById("resultText").innerHTML = "I'm waiting..."
-        })
-        button.addEventListener("click", function () {  //Use of anonymous function so it doesn't trigger right away the roundGame function
-        roundGame(button.id, computerPlay())
-    });
-});
-
+game(playerSelection, computerSelection);

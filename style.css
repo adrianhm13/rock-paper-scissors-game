@@ -47,7 +47,8 @@ h1{
 #secondContainer p{
     font-size: 25px;
     font-family: 'Roboto', sans-serif;
-    color:rgb(73, 73, 73)
+    color:rgb(73, 73, 73);
+    margin: 21px;
 }
 .cardChoice{
     display:flex;

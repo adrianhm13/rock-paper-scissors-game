@@ -26,6 +26,7 @@ h1{
     align-content:center;
     justify-content: center;
     border-bottom: 1px;
+    flex-wrap: wrap;
 }
 #buttonsContainer{
     margin: 25px 25px 25px 25px;
@@ -100,4 +101,15 @@ button{
 button:hover{
     background-color: #afafaf; /* Green */
     color: rgb(0, 0, 0);
+}
+.scoreDiv{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    height: 15%;
+    background-color: rgb(196, 196, 196);
+    color: rgb(149, 95, 199);
+    border-top: 1px solid rgb(172, 172, 172);
 }
